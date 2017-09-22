@@ -235,7 +235,7 @@ module.exports = function(grunt) {
 	        filepath = filepath.replace(/[^\/]+\//g, relativeTo);
 	    }
 
-		fileContent = fileContent.replace(/url\(["']*([^)'"]+)["']*\)/g, function(matchedWord, imgUrl){
+		fileContent = fileContent.replace(/url\(["']*([^\\{)'"]+)["']*\)/g, function(matchedWord, imgUrl){
 			var newUrl = imgUrl;
 			var flag = !!imgUrl.match(/\?__inline/);	// urls like "img/bg.png?__inline" will be transformed to base64
 			grunt.log.debug('flag:'+flag);
